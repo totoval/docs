@@ -4,7 +4,7 @@ headless: true
 
 - **Introduction**
   - [Release Notes]({{< relref "/docs/introduction/release_notes.md" >}})
-  - [Go Docs](https://totoval.com)
+  - [Go Docs //TODO](https://totoval.com)
 - **Getting Started**
   - [Installation]({{< relref "/docs/getting_started/installation.md" >}})
   - [Configuration]({{< relref "/docs/getting_started/configuration.md" >}})
@@ -46,3 +46,4 @@ headless: true
  - [BigFloat]({{< relref "/docs/internal_types/bigfloat.md" >}})
 - **Other Features**
   - [Views]({{< relref "/docs/basics/views.md" >}})
+  - [Infinity User Affiliation System]({{< relref "/docs/others/infinity_user_affiliation_system.md" >}})
