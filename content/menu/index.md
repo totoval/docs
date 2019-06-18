@@ -3,6 +3,7 @@ headless: true
 ---
 
 - **Introduction**
+  - [Introduction]({{< relref "/docs/introduction/introduction.md" >}})
   - [Release Notes]({{< relref "/docs/introduction/release_notes.md" >}})
   - [Go Docs //TODO](https://totoval.com)
 - **Getting Started**
@@ -47,3 +48,4 @@ headless: true
 - **Other Features**
   - [Views]({{< relref "/docs/basics/views.md" >}})
   - [Infinity User Affiliation System]({{< relref "/docs/others/infinity_user_affiliation_system.md" >}})
+  - [Biu]({{< relref "/docs/others/biu.md" >}})

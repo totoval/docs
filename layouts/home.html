@@ -1,12 +1,93 @@
+{{/*<!DOCTYPE html>*/}}
+{{/*<html lang="en">*/}}
+{{/*<head>*/}}
+{{/*    <meta charset="UTF-8">*/}}
+{{/*    <title>Totoval - An out-of-the-box artisan API web-framework written in go.</title>*/}}
+{{/*</head>*/}}
+{{/*<body>*/}}
+{{/*<h1><a href="/docs/getting_started/installation">Docs</a></h1>*/}}
+{{/*<h1>Totoval is an API web framework that helps Golang engineers build a performance-boiled project quickly, easily, and securely. It is more like a scaffolding, respecting Golang's programming philosophy, supported by a number of highly acclaimed, high-performance core components, as well as many easy-to-use components to quickly adapt to more business scenarios. We also believe that development must be an enjoyable and creative experience. Totoval frees developers from the painful coding process. Do less, think more.</h1>*/}}
+
+{{/*</body>*/}}
+{{/*</html>*/}}
+
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
-    <meta charset="UTF-8">
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Totoval - An out-of-the-box artisan API web-framework written in go.</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.7.5/css/bulma.min.css">
+    <script defer src="https://use.fontawesome.com/releases/v5.3.1/js/all.js"></script>
 </head>
 <body>
-<h1><a href="/docs/getting_started/installation">Docs</a></h1>
-<h1>Totoval is an API web framework that helps Golang engineers build a performance-boiled project quickly, easily, and securely. It is more like a scaffolding, respecting Golang's programming philosophy, supported by a number of highly acclaimed, high-performance core components, as well as many easy-to-use components to quickly adapt to more business scenarios. We also believe that development must be an enjoyable and creative experience. Totoval frees developers from the painful coding process. Do less, think more.</h1>
+<section class="hero is-fullheight">
+    <!-- Hero head: will stick at the top -->
+    <div class="hero-head">
+        <header class="navbar">
+            <div class="container">
+                <div class="navbar-brand">
+                    <a class="navbar-item">
+                        <img src="/images/logo.png" alt="Logo">
+                    </a>
+                    <span class="navbar-burger burger" data-target="navbarMenuHeroC">
+            <span></span>
+            <span></span>
+            <span></span>
+          </span>
+                </div>
+                <div id="navbarMenuHeroC" class="navbar-menu">
+                    <div class="navbar-end">
+                        <a class="navbar-item is-active" href="//totoval.com">
+                            Home
+                        </a>
+                        <a class="navbar-item" href="//totoval.com/docs/getting_started/installation/">
+                            Documentation
+                        </a>
+                        <span class="navbar-item">
+              <a class="button is-success is-inverted" href="https://github.com/totoval/totoval">
+                <span class="icon">
+                  <i class="fab fa-github"></i>
+                </span>
+                <span>Download</span>
+              </a>
+            </span>
+                    </div>
+                </div>
+            </div>
+        </header>
+    </div>
 
+    <!-- Hero content: will be in the middle -->
+    <div class="hero-body">
+        <div class="container has-text-centered">
+            <h1 class="title">
+                Totoval
+            </h1>
+            <h2 class="subtitle">
+                An out-of-the-box artisan API web-framework written in go.
+            </h2>
+        </div>
+    </div>
+
+    <!-- Hero footer: will stick at the bottom -->
+    <div class="hero-foot">
+        <nav class="tabs is-boxed is-fullwidth">
+            <div class="container">
+                <ul>
+                    <li><a><i class="fas fa-random"></i>Router</a></li>
+                    <li><a><i class="fas fa-align-center"></i>Middleware</a></li>
+                    <li><a><i class="fas fa-database"></i>Database Eloquent</a></li>
+                    <li><a><i class="fas fa-server"></i>Cache</a></li>
+                    <li><a><i class="fas fa-briefcase"></i>Queue Job</a></li>
+                    <li><a><i class="fas fa-bell"></i>Event Listener</a></li>
+                    <li><a><i class="fas fa-tasks"></i>Task Scheduling</a></li>
+                    <li><a><i class="fas fa-terminal"></i>Custom Command Line</a></li>
+                    <li><a><i class="fas fa-language"></i>Language Pack</a></li>
+                </ul>
+            </div>
+        </nav>
+    </div>
+</section>
 </body>
 </html>
