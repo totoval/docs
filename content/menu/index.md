@@ -49,3 +49,4 @@ headless: true
   - [Views]({{< relref "/docs/basics/views.md" >}})
   - [Infinity User Affiliation System]({{< relref "/docs/others/infinity_user_affiliation_system.md" >}})
   - [Biu]({{< relref "/docs/others/biu.md" >}})
+  - [Sentry]({{< relref "/docs/others/sentry.md" >}})
