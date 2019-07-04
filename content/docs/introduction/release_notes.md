@@ -21,16 +21,19 @@ https://github.com/totoval/totoval/compare/v0.7.11...v0.8.0#diff-57e6facd16b7a7d
 auth["model_ptr"] = &models.User{} // must be a pointer
 ```
 
-#### 2. Bootstrap `bootstrap/app.go`
-`>= v0.8.x` added:
+#### 2. Bootstrap `bootstrap/app.go`  
+`>= v0.8.x` added:  
+
 ```go
 policy.Initialize()
 ```
+
 after `lang.Initialize()`
 
 #### 3. Routes 
 * `routes/provider.go`  
-`< v0.8.x` :
+`< v0.8.x` :  
+
 ```go
 ...
 ...
@@ -41,7 +44,9 @@ func Register(router *gin.Engine) {
 ...
 ...
 ```
-`>= v0.8.x`:
+
+`>= v0.8.x`:  
+
 ```go
 ...
 ...
@@ -54,7 +59,9 @@ func Register(router *gin.Engine) {
 ```
 
 * `routes/versions/v1.go`  
+
 `< v0.8.x`:  
+
 ```go
 ...
 ...
@@ -87,7 +94,9 @@ func (v1 *V1) auth(group *gin.RouterGroup) {
 	}
 }
 ```
+
 `>= v0.8.x`:  
+
 ```go
 ...
 ...
@@ -109,7 +118,9 @@ func NewV1(engine *gin.Engine) {
 ```
 
 * `routes/groups/xxx.go`
+
 `< v0.8.x` example:
+
 ```go
 ...
 ...
@@ -121,7 +132,9 @@ func (ag *AuthGroup) Register(group *gin.RouterGroup) {
 	}
 }
 ```
+
 `>= v0.8.x` example:
+
 ```go
 ...
 ...
@@ -131,8 +144,10 @@ func (ag *AuthGroup) Group(group route.Grouper) {
 }
 ```
 
+
 #### 4. Controllers  `app/http/controllers/xxx.go`
 `< v0.8.x` example:
+
 ```go
 func (*User) Info(c *gin.Context) {
 	userID, isAbort := middleware.AuthClaimsID(c)
@@ -153,7 +168,9 @@ func (*User) Info(c *gin.Context) {
 	return
 }
 ```
+
 `>= v0.8.x` example:
+
 ```go
 func (*User) Info(c *gin.Context) {
         if u.Scan(c) {
@@ -170,6 +187,7 @@ func (*User) Info(c *gin.Context) {
 
 #### 5. Model `app/models/user.go` or your own user model
 `>= v0.8.x` added:
+
 ```go
 ...
 ...
