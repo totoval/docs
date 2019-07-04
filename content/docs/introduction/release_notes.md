@@ -32,117 +32,117 @@ after `lang.Initialize()`
 
 #### 3. Routes 
 * `routes/provider.go`  
-`< v0.8.x` :  
+    `< v0.8.x` :  
+    
+    ```go
+    ...
+    ...
+    func Register(router *gin.Engine) {
+        version := &versions.V1{Prefix: "v1"}
+        version.Register(router)
+    }
+    ...
+    ...
+    ```
+    
+    `>= v0.8.x`:  
+    
+    ```go
+    ...
+    ...
+    func Register(router *gin.Engine) {
+        defer route.Bind()
+        versions.NewV1(router)
+    }
+    ...
+    ...
+    ```
 
-```go
-...
-...
-func Register(router *gin.Engine) {
-	version := &versions.V1{Prefix: "v1"}
- 	version.Register(router)
-}
-...
-...
-```
+* `routes/versions/v1.go`   
 
-`>= v0.8.x`:  
-
-```go
-...
-...
-func Register(router *gin.Engine) {
-	defer route.Bind()
- 	versions.NewV1(router)
-}
-...
-...
-```
-
-* `routes/versions/v1.go`  
-
-`< v0.8.x`:  
-
-```go
-...
-...
-type V1 struct {
-	Prefix string
-}
-
-func (v1 *V1) Register(router *gin.Engine) {
-	version := router.Group(v1.Prefix)
-	{
-		v1.noAuth(version)
-		v1.auth(version)
-	}
-}
-
-func (v1 *V1) noAuth(group *gin.RouterGroup) {
-	noAuthGroup := group.Group("")
-
-	{
-		route.RegisterRouteGroup(&groups.AuthGroup{}, noAuthGroup)
-		route.RegisterRouteGroup(&groups.UserAffiliationGroup{}, noAuthGroup)
-	}
-}
-
-func (v1 *V1) auth(group *gin.RouterGroup) {
-	authGroup := group.Group("", middleware.AuthRequired())
-
-	{
-		route.RegisterRouteGroup(&groups.UserGroup{}, authGroup)
-	}
-}
-```
-
-`>= v0.8.x`:  
-
-```go
-...
-...
-
-func NewV1(engine *gin.Engine) {
-	ver := route.NewVersion(engine, "v1")
-
-	// auth routes
-	ver.Auth("", func(grp route.Grouper) {
-		grp.AddGroup("/user", &groups.UserGroup{})
-	})
-
-	// no auth routes
-	ver.NoAuth("", func(grp route.Grouper) {
-		grp.AddGroup("", &groups.AuthGroup{})
-		grp.AddGroup("/user-affiliation", &groups.UserAffiliationGroup{})
-	})
-}
-```
+    `< v0.8.x`:  
+    
+    ```go
+    ...
+    ...
+    type V1 struct {
+        Prefix string
+    }
+    
+    func (v1 *V1) Register(router *gin.Engine) {
+        version := router.Group(v1.Prefix)
+        {
+            v1.noAuth(version)
+            v1.auth(version)
+        }
+    }
+    
+    func (v1 *V1) noAuth(group *gin.RouterGroup) {
+        noAuthGroup := group.Group("")
+    
+        {
+            route.RegisterRouteGroup(&groups.AuthGroup{}, noAuthGroup)
+            route.RegisterRouteGroup(&groups.UserAffiliationGroup{}, noAuthGroup)
+        }
+    }
+    
+    func (v1 *V1) auth(group *gin.RouterGroup) {
+        authGroup := group.Group("", middleware.AuthRequired())
+    
+        {
+            route.RegisterRouteGroup(&groups.UserGroup{}, authGroup)
+        }
+    }
+    ```
+    
+    `>= v0.8.x`:  
+    
+    ```go
+    ...
+    ...
+    
+    func NewV1(engine *gin.Engine) {
+        ver := route.NewVersion(engine, "v1")
+    
+        // auth routes
+        ver.Auth("", func(grp route.Grouper) {
+            grp.AddGroup("/user", &groups.UserGroup{})
+        })
+    
+        // no auth routes
+        ver.NoAuth("", func(grp route.Grouper) {
+            grp.AddGroup("", &groups.AuthGroup{})
+            grp.AddGroup("/user-affiliation", &groups.UserAffiliationGroup{})
+        })
+    }
+    ```
 
 * `routes/groups/xxx.go`
 
-`< v0.8.x` example:
-
-```go
-...
-...
-func (ag *AuthGroup) Register(group *gin.RouterGroup) {
-	newGroup := group.Group("")
-	{
-		newGroup.POST("/login", ag.LoginController.Login)
-		newGroup.POST("/register", ag.RegisterController.Register)
-	}
-}
-```
-
-`>= v0.8.x` example:
-
-```go
-...
-...
-func (ag *AuthGroup) Group(group route.Grouper) {
-	group.POST("/login", ag.LoginController.Login)
-	group.POST("/register", ag.RegisterController.Register)
-}
-```
+    `< v0.8.x` example:
+    
+    ```go
+    ...
+    ...
+    func (ag *AuthGroup) Register(group *gin.RouterGroup) {
+        newGroup := group.Group("")
+        {
+            newGroup.POST("/login", ag.LoginController.Login)
+            newGroup.POST("/register", ag.RegisterController.Register)
+        }
+    }
+    ```
+    
+    `>= v0.8.x` example:
+    
+    ```go
+    ...
+    ...
+    func (ag *AuthGroup) Group(group route.Grouper) {
+        group.POST("/login", ag.LoginController.Login)
+        group.POST("/register", ag.RegisterController.Register)
+    }
+    ```
 
 
 #### 4. Controllers  `app/http/controllers/xxx.go`
