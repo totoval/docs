@@ -39,21 +39,12 @@ func (pp *postPolicy) Update(userIF model.IUser, routeParamMap map[string]string
 	currentUser := userIF.Value().(*models.User)
 
 	// get current post
-	postIdStr, ok := routeParamMap["postId"] 
-	if !ok{
-		return false
-	}
-	currentPostIdUint, err := strconv.ParseUint(postIdStr, 10, 64)
-	if err != nil{
-		return false
-	}
-	currentPost := &models.Post{
-		Id: uint(currentPostIdUint),
-	}
-	if err := m.H().First(&currentPost, false); err != nil {
-		return false
-	}
-
+	postIdStr, ok := routeParamMap["postId"]
+	
+	...
+	... // convert postIdStr and get currentPost from db
+	...
+	
 	// user only can edit his own post
 	if *currentUser.Id == *currentPost.UserId {
 		return true
@@ -83,7 +74,15 @@ func (pg *PostGroup) Group(group route.Grouper) {
 func (p *Post) Edit(c *gin.Context) {
     ...
     ...
-    isAbort, user := l.Authorize(c, policies.NewPostPolicy(), policy.ActionView)
+    // get current post
+    postIdStr, ok := c.Param("postId")
+    
+    ...
+    ... // convert postIdStr and get currentPost from db
+    ...
+    
+    // Do Authorize
+    isAbort, user := l.Authorize(c, policies.NewPostPolicy(&currentPost), policy.ActionView)
     if isAbort{
         return
     }
