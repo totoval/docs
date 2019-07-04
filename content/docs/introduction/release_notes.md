@@ -54,11 +54,10 @@ func Register(router *gin.Engine) {
 ```
 
 * `routes/versions/v1.go`  
-`< v0.8.x`:
+`< v0.8.x`:  
 ```go
 ...
 ...
-
 type V1 struct {
 	Prefix string
 }
@@ -88,7 +87,7 @@ func (v1 *V1) auth(group *gin.RouterGroup) {
 	}
 }
 ```
-`>= v0.8.x`:
+`>= v0.8.x`:  
 ```go
 ...
 ...
