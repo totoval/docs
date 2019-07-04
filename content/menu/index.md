@@ -23,6 +23,7 @@ headless: true
   - [Logging]({{< relref "/docs/basics/logging.md" >}})
 - **Security**
   - [Authentication]({{< relref "/docs/security/authentication.md" >}})
+  - [Authorization]({{< relref "/docs/security/authorization.md" >}})
   - [Email Verification]({{< relref "/docs/security/email_verification.md" >}})
   - [Encryption]({{< relref "/docs/security/encryption.md" >}})
   - [Hashing]({{< relref "/docs/security/hashing.md" >}})

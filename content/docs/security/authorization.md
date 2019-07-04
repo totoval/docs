@@ -77,3 +77,17 @@ func (pg *PostGroup) Group(group route.Grouper) {
     group.PUT("/post/:postId", pg.PostController.Edit).Can(policies.NewPostPolicy(nil), policy.ActionUpdate)
 }
 ```
+
+## Authorize in Controller
+```go
+func (p *Post) Edit(c *gin.Context) {
+    ...
+    ...
+    isAbort, user := l.Authorize(c, policies.NewPostPolicy(), policy.ActionView)
+    if isAbort{
+        return
+    }
+    ...
+    ...
+}
+```
