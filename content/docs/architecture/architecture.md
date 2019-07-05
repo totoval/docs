@@ -36,7 +36,7 @@ Totoval repo is the main repo which defines the directory mapping of Totoval. It
     * **[versions]({{< relref "/docs/basics/routing.md" >}})**
     * **[groups]({{< relref "/docs/basics/routing.md" >}})**
 * **environment file**  
-    The **environment file** is typically refers to a file named `.env.json`, which you could defined a set of values in **json** format and it will rewrite the values set at [config]({{< relref "/docs/getting_started/configuration.md" >}}) files
+    The **environment file** is typically refers to a file named `.env.json`, which you could defined a set of values in **json** format and it will overwrite the values set at [config]({{< relref "/docs/getting_started/configuration.md" >}}) files
 * **entrypoint**  
     * **main.go**
         **main.go** is the entrypoint of starting the web application, and it will serve the http server binding the port you've configured.
