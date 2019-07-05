@@ -68,7 +68,8 @@ Set the environment variable named as the key of `.env.json` defined will overwr
 `Environment Variables` **>** `Environment Files`
 
 ## Accessing Configuration Values
-
+**Totoval use `dot` to separate the level of config key for getting the data.**  
+  
 Here's an example of getting the boolean value of a key named `debug` in `config/app.go`.
 ```go
 import "github.com/totoval/framework/config"
