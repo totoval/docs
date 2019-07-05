@@ -1,6 +1,8 @@
 # Middleware
 Middleware is also a [route handler]({{< relref "/docs/basics/routing.md" >}}).   
+
 > Middleware will proccess the request before controller, so it cannot be the last handler in a route.
+
 ```go
 package middleware
 
