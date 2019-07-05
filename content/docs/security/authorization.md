@@ -30,13 +30,13 @@ func NewPostPolicy(post *models.Post) *postPolicy {
 	return &postPolicy{post: post}
 }
 
-func (pp *postPolicy) Before() *bool {
+func (pp *postPolicy) Before(IUser model.IUser, routeParamMap map[key]value) *bool {
 	return nil
 }
-func (pp *postPolicy) Create(userIF model.IUser, routeParamMap map[string]string) bool { return true }
-func (pp *postPolicy) Update(userIF model.IUser, routeParamMap map[string]string) bool      {
+func (pp *postPolicy) Create(IUser model.IUser, routeParamMap map[string]string) bool { return true }
+func (pp *postPolicy) Update(IUser model.IUser, routeParamMap map[string]string) bool      {
 	// get current user
-	currentUser := userIF.Value().(*models.User)
+	currentUser := IUser.Value().(*models.User)
 
 	// get current post
 	postIdStr, ok := routeParamMap["postId"]
@@ -51,11 +51,16 @@ func (pp *postPolicy) Update(userIF model.IUser, routeParamMap map[string]string
 	}
 	return false
 }
-func (pp *postPolicy) Delete(userIF model.IUser, routeParamMap map[string]string) bool      { return true }
-func (pp *postPolicy) ForceDelete(userIF model.IUser, routeParamMap map[string]string) bool { return true }
-func (pp *postPolicy) View(userIF model.IUser, routeParamMap map[string]string) bool { return true }
-func (pp *postPolicy) Restore(userIF model.IUser, routeParamMap map[string]string) bool { return true }
+func (pp *postPolicy) Delete(IUser model.IUser, routeParamMap map[string]string) bool      { return true }
+func (pp *postPolicy) ForceDelete(IUser model.IUser, routeParamMap map[string]string) bool { return true }
+func (pp *postPolicy) View(IUser model.IUser, routeParamMap map[string]string) bool { return true }
+func (pp *postPolicy) Restore(IUser model.IUser, routeParamMap map[string]string) bool { return true }
 ```
+* `Before` func will be called at the first
+    * If `Before` return **nil**, then it will call the **Action** you defined at router `Can` or controller `Authorize` func.
+    * If `Before` return **a bool pointer**, then it will immediately return the bool you returned as the Authorizing result.
+> Typically, `Before` func usually used under the **Admin** circumstances.
+* Other funcs like `Create`, `Update`, etc. are matched with the **Action** you defined at router `Can` or controller `Authorize` func, the result of Authorization will be the bool you returned at these funcs. 
 
 # Authorizing Actions Using Policies
 ## Authorizing Route
