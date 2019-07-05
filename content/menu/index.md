@@ -28,6 +28,9 @@ headless: true
   - [Encryption]({{< relref "/docs/security/encryption.md" >}})
   - [Hashing]({{< relref "/docs/security/hashing.md" >}})
   - [Password Reset]({{< relref "/docs/security/password_reset.md" >}})
+- **Frontend**
+  - [Localization]({{< relref "/docs/frontend/localization.md" >}})
+  - [Views]({{< relref "/docs/frontend/views.md" >}})
 - **Deeper**
   - [Artisan Console]({{< relref "/docs/deeper/artisan_console.md" >}})
   - [Cache]({{< relref "/docs/deeper/cache.md" >}})
@@ -41,13 +44,13 @@ headless: true
   - [Migrations]({{< relref "/docs/database/migrations.md" >}})
   - [Redis]({{< relref "/docs/database/redis.md" >}})
 - **ORM**
+  - [Models]({{< relref "/docs/orm/models.md" >}})
   - [Model Helpers]({{< relref "/docs/orm/model_helpers.md" >}})
   - [Pagination]({{< relref "/docs/orm/pagination.md" >}})
 - **Internal Types**
- - [BigInt]({{< relref "/docs/internal_types/bigint.md" >}})
- - [BigFloat]({{< relref "/docs/internal_types/bigfloat.md" >}})
+  - [BigInt]({{< relref "/docs/internal_types/bigint.md" >}})
+  - [BigFloat]({{< relref "/docs/internal_types/bigfloat.md" >}})
 - **Other Features**
-  - [Views]({{< relref "/docs/basics/views.md" >}})
   - [Infinity User Affiliation System]({{< relref "/docs/others/infinity_user_affiliation_system.md" >}})
   - [Biu]({{< relref "/docs/others/biu.md" >}})
   - [Sentry]({{< relref "/docs/others/sentry.md" >}})
