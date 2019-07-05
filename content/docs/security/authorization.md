@@ -38,6 +38,11 @@ func (pp *postPolicy) Update(IUser model.IUser, routeParamMap map[string]string)
 	// get current user
 	currentUser := IUser.Value().(*models.User)
 
+	// if use Authorize func, routeParamMap is nil
+	if routeParamMap == nil {
+		return true
+	}
+
 	// get current post
 	postIdStr, ok := routeParamMap["postId"]
 	
@@ -87,8 +92,9 @@ func (p *Post) Edit(c *gin.Context) {
     ...
     
     // Do Authorize
-    isAbort, user := l.Authorize(c, policies.NewPostPolicy(&currentPost), policy.ActionView)
-    if isAbort{
+    permit, user := l.Authorize(c, policies.NewPostPolicy(&currentPost), policy.ActionView)
+    if !permit{
+        c.JSON(http.StatusForbidden, gin.H{"error": policy.UserNotPermitError{}.Error()})
         return
     }
     ...
