@@ -1,7 +1,7 @@
 # Routing
 
 ## Route
-Route has 3 params.
+Route has 3 params.  
 * One is the **request method**, which defines what request method could attach this route.  
 * One is the **request uri**, which defines what request could attach this route.  
 * Another one is the **handlers**, which defines how the program will handle the matched route request. you could define multiple handles for one route.
