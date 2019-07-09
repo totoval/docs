@@ -11,6 +11,12 @@
     #title {
         font-size: 3em;
     }
+    #footer-container {
+        max-width: none;
+    }
+    #footer-container>ul>li>a svg {
+        margin-right: 4px;
+    }
 </style>
 <body>
 <section class="hero is-fullheight" style="background-color: #eeeeee;">
@@ -80,7 +86,7 @@
     <!-- Hero footer: will stick at the bottom -->
     <div class="hero-foot">
         <nav class="tabs is-boxed is-fullwidth">
-            <div class="container">
+            <div id="footer-container" class="container">
                 <ul>
                     <li><a><i class="fas fa-random"></i>Router</a></li>
                     <li><a><i class="fas fa-align-center"></i>Middleware</a></li>
@@ -91,6 +97,7 @@
                     <li><a><i class="fas fa-tasks"></i>Task Scheduling</a></li>
                     <li><a><i class="fas fa-terminal"></i>Custom Command Line</a></li>
                     <li><a><i class="fas fa-language"></i>Language Pack</a></li>
+                    <li><a><i class="fas fa-user-tag"></i>RBAC</a></li>
                 </ul>
             </div>
         </nav>
