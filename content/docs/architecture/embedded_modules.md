@@ -1,7 +1,7 @@
 # Embedded Modules
 
 ## Totoval
-refers to (https://github.com/totoval/totoval/blob/master/go.mod)[https://github.com/totoval/totoval/blob/master/go.mod]
+refers to https://github.com/totoval/totoval/blob/master/go.mod
 ```go
 module totoval
 
@@ -15,7 +15,7 @@ require (
 ```
 
 ## Framework
-refers to [https://github.com/totoval/framework/blob/master/go.mod](https://github.com/totoval/framework/blob/master/go.mod)
+refers to https://github.com/totoval/framework/blob/master/go.mod
 ```go
 module github.com/totoval/framework
 
