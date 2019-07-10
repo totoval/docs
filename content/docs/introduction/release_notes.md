@@ -7,8 +7,8 @@ while minio release my be released as often as new feature has been added. Minor
 **never** contain breaking changes.
 
 When referencing the Totoval framework from your application, you should always use the version
-which Totoval is used. for example, Totoval's version is `v0.9.0`, Totoval framework's version
-should also be `v0.9.0`.
+which Totoval is used. for example, Totoval's version is `v0.9.1`, Totoval framework's version
+should also be `v0.9.1`.
 
 ## Totoval v0.9.x
 Totoval `v0.9.x` upgrades the framework's underlying Totoval components to the `v0.9.x` series.
