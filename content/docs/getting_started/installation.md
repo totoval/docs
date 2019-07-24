@@ -21,3 +21,6 @@
     git init
     ```
     
+## Use As Template
+1. Github Fork [https://github.com/totoval/totoval](https://github.com/totoval/totoval)
+2. Click `Use this template` Button at [here](https://github.com/totoval/totoval)
