@@ -47,6 +47,7 @@ headless: true
   - [Models]({{< relref "/docs/orm/models.md" >}})
   - [Model Helpers]({{< relref "/docs/orm/model_helpers.md" >}})
   - [Pagination]({{< relref "/docs/orm/pagination.md" >}})
+  - [Mutators]({{< relref "/docs/orm/mutators.md" >}})
 - **Internal Types**
   - [BigInt]({{< relref "/docs/internal_types/bigint.md" >}})
   - [BigFloat]({{< relref "/docs/internal_types/bigfloat.md" >}})
