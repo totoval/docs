@@ -92,7 +92,7 @@ func (p *Post) Edit(c *gin.Context) {
     ...
     
     // Do Authorize
-    permit, user := l.Authorize(c, policies.NewPostPolicy(&currentPost), policy.ActionView)
+    permit, user := p.Authorize(c, policies.NewPostPolicy(&currentPost), policy.ActionView)
     if !permit{
         c.JSON(http.StatusForbidden, gin.H{"error": policy.UserNotPermitError{}.Error()})
         return
