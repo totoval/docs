@@ -37,10 +37,11 @@ func Save(){
 		Nickname: "mynick",
 	}
 	userModified := User{
-		Password: "passw0rd123",
-		Nickname: null.String(),
+		Password: "passw0rd123", // modify password to `passw0rd123`
 	}
-	if err := m.H().Save(&user, userModified, ); err != nil{
+	if err := m.H().Save(&user, userModified, User{
+		Nickname: null.String(), // set nickname to null
+	}); err != nil{
 		panic(err)
 	}
 	
